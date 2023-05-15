@@ -136,7 +136,9 @@ def main():
             if st.button("Finish and Deploy to NUCAL!") :
                 st.markdown("Deploying!....")
         if('final_code' in st.session_state):
+            st.subheader("Visual View")
             st.components.v1.html(st.session_state['final_code'][0],height=500,scrolling=True)
+            st.subheader("Backend Code")
             st_ace(
                         value=st.session_state['final_code'][0],
                         language="html",
@@ -151,6 +153,7 @@ def main():
                         min_lines=45,
                         key=f"ace-2editor-{st.session_state['counter']}",
                     )
+            st.subheader("Backend Code")
             st_ace(
                         value=st.session_state['final_code'][1],
                         language="javascript",
@@ -165,6 +168,7 @@ def main():
                         min_lines=45,
                         key=f"ace-1editor-{st.session_state['counter']}",
                     )
+            st.subheader("DB Creation")
             st_ace(
                         value=st.session_state['final_code'][2],
                         language="sql",
