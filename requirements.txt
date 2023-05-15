@@ -1,0 +1,10 @@
+# Core
+streamlit
+
+# Streamlit components
+streamlit-ace
+
+
+# Dependencies
+openai
+langchain
