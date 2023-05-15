@@ -17,8 +17,7 @@ def clear_text():
 
 
 def generate_website_langchain(text):
-    openai.api_key  = st.session_state['OpenAPIKey']
-    llm = OpenAIChat(temperature=0.0,model="gpt-3.5-turbo",max_tokens=3900)
+    llm = OpenAIChat(temperature=0.0,model="gpt-3.5-turbo",max_tokens=3900, openai_api_key=st.session_state['OpenAPIKey'])
     prompt = PromptTemplate(
     input_variables=["text"],
     template="""
@@ -32,8 +31,7 @@ def generate_website_langchain(text):
     return chain.run(text)
 
 def refine_website_langchain(code,text):
-    openai.api_key  = st.session_state['OpenAPIKey']
-    llm = OpenAIChat(temperature=0.0,model="gpt-3.5-turbo",max_tokens=2900)
+    llm = OpenAIChat(temperature=0.0,model="gpt-3.5-turbo",max_tokens=2900,openai_api_key=st.session_state['OpenAPIKey'])
     prompt = PromptTemplate(
     input_variables=["code","text"],
     template="""
@@ -70,8 +68,7 @@ def refine_website_langchain(code,text):
 #     return get_completion(prompt,temp=0)
 
 def define_nextSteps_2(code,text):
-    openai.api_key  = st.session_state['OpenAPIKey']
-    llm = OpenAIChat(temperature=0.0,model="gpt-3.5-turbo",max_tokens=2900)
+    llm = OpenAIChat(temperature=0.0,model="gpt-3.5-turbo",max_tokens=2900,openai_api_key=st.session_state['OpenAPIKey'])
     prompt = PromptTemplate(
     input_variables=["code","text"],
     template="""
